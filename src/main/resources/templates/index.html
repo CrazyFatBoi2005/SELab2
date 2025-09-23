@@ -22,9 +22,9 @@
         <span class="title" th:text="${item.name}">Title</span> <br>
         <span class="desc" th:text="${item.description}">Description</span>
         <div class="price">
-            <span th:text="${#numbers.formatDecimal(item.price, 1, 2)}">0.00</span> $
+            <span th:text="${item.price}">0.00</span> $
         </div>
-        <a class="btn" th:href="@{'/process/' + ${item.name} + '/' + 18}">DETAILS</a>
+        <a class="btn">DETAILS</a>
     </div>
 </div>
 </body>
