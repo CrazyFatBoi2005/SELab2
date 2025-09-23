@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Electronic shop items</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 32px auto; }
+        .card { background: #e8f0f0; padding: 24px; border-radius: 12px; text-align: center; }
+        .title { font-size: 24px; font-weight: 700; color: #1e5799; margin-bottom: 8px; }
+        .desc { color: #333; margin-bottom: 16px; }
+        .price { color: #0a8f38; font-weight: 800; font-size: 22px; margin-bottom: 12px; }
+        .btn { background: #0a5a1a; color: #fff; padding: 10px 18px; border-radius: 8px; text-decoration: none; display: inline-block; }
+        h1 { text-align: center; }
+    </style>
+</head>
+<body>
+<h1>Electronic shop items</h1>
+
+<div class="grid">
+    <div class="card" th:each="item : ${items}">
+        <span class="title" th:text="${item.name}">Title</span> <br>
+        <span class="desc" th:text="${item.description}">Description</span>
+        <div class="price">
+            <span th:text="${#numbers.formatDecimal(item.price, 1, 2)}">0.00</span> $
+        </div>
+        <a class="btn" th:href="@{'/process/' + ${item.name} + '/' + 18}">DETAILS</a>
+    </div>
+</div>
+</body>
+</html>
