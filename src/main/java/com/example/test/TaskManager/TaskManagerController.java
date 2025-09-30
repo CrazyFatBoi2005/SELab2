@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-// Все маршруты начинаются с /tm
 @Controller
 @RequestMapping("/tm")
 public class TaskManagerController {
@@ -19,7 +18,6 @@ public class TaskManagerController {
         return "tasks";
     }
 
-    // Обработка создания задачи: POST /tm/add/new
     @PostMapping("/add/new")
     public String createTask(@ModelAttribute("newTask") Task task) {
         dataBase.addTask(task);
@@ -28,9 +26,9 @@ public class TaskManagerController {
 
     @GetMapping("/{id}/")
     public String editTask(@PathVariable long id, Model model) {
-        Task task = dataBase.getTask(id); // реализуй в DataBase
+        Task task = dataBase.getTask(id);
         model.addAttribute("task", task);
-        return "task-edit"; // твой шаблон формы (или модалка)
+        return "task-edit";
     }
 
     @PostMapping("/{id}/edit")

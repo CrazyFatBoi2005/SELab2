@@ -67,6 +67,7 @@
     <script>
         document.getElementById('openNewTaskBtn')?.addEventListener('click', function () {
             const el = document.getElementById('newTaskModal');
+            console.log(el)
             if (!el) return;
             const m = bootstrap?.Modal ? new bootstrap.Modal(el) : null;
             m?.show();
